@@ -1,0 +1,44 @@
+{
+  "eventos": [
+    {
+      "id": "1",
+      "titulo": "Semana do CST em ads",
+      "dataEvento": "2024-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "titulo": "SCST",
+      "dataEvento": "2024-10-12T10:00:00.000Z"
+    },
+    {
+      "id": "fa47",
+      "titulo": "Mercado",
+      "dataEvento": "2024-11-01"
+    },
+    {
+      "id": "291b",
+      "titulo": "DFGBGGFLJGJG.N.B.VBLBBNMBK.B",
+      "dataEvento": ""
+    },
+    {
+      "id": "3a50",
+      "titulo": "",
+      "valorDespesa": "124412"
+    },
+    {
+      "id": "05aa",
+      "titulo": "Lazer",
+      "valorDespesa": "124412"
+    },
+    {
+      "id": "4a4a",
+      "titulo": "Academia",
+      "valorDespesa": "140"
+    },
+    {
+      "id": "a3c4",
+      "titulo": "Mercado",
+      "valorDespesa": "40"
+    }
+  ]
+}
