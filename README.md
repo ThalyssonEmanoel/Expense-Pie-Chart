@@ -6,7 +6,7 @@ This is a simple project that uses the **Next.js** framework, which works with *
 
 If you want to run this code using a code editor, follow these steps:
 
-* **Install** [NVM](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script);
+* **Install** <a href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script" target="_blank">NVM</a>;
 * **Node version** -> 21.7.3 
 * Run `npm run dev` to start the website's front-end;
 * Open a new terminal;
