@@ -1,0 +1,34 @@
+{
+  "eventos": [
+    {
+      "id": "1",
+      "titulo": "Semana do CST em ads",
+      "dataEvento": "2024-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "titulo": "SCST",
+      "dataEvento": "2024-10-12T10:00:00.000Z"
+    },
+    {
+      "id": "6b1b",
+      "titulo": "Mercado",
+      "valorDespesa": "1520"
+    },
+    {
+      "id": "baaa",
+      "titulo": "Mercado",
+      "valorDespesa": "8765"
+    },
+    {
+      "id": "08a9",
+      "titulo": "",
+      "valorDespesa": ""
+    },
+    {
+      "id": "9c52",
+      "titulo": "",
+      "valorDespesa": ""
+    }
+  ]
+}
