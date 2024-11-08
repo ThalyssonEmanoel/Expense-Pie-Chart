@@ -8,9 +8,9 @@ If you want to run this code using a code editor, follow these steps:
 
 * **Install** <a href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script" target="_blank">NVM</a>;
 * **Node version** -> 21.7.3 
-* Run `npm run dev` to start the website's front-end;
+* Go to the 'frontEnd' folder and run the command 'npm run dev';
 * Open a new terminal;
-* Run `npm run api` (make sure you are using Node version 21.7.3);
+* Go to the 'backEnd' folder and run the command 'npm run api'. (make sure you are using Node version 21.7.3);
 * Go to the port indicated by Next.js/front-end;
 * Be happy.
 
