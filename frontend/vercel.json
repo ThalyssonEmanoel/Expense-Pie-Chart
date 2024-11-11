@@ -1,1 +1,5 @@
-// Utilizar para configurações futuras.
+{
+    "buildCommand": "next build",
+    "cleanUrls": true,
+    "framework": "nextjs"
+}
