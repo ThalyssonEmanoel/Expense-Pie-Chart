@@ -1,5 +1,6 @@
 {
     "buildCommand": "next build",
     "cleanUrls": true,
-    "framework": "nextjs"
+    "framework": "nextjs",
+    "public": true
 }
