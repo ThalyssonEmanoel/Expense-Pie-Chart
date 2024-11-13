@@ -7,6 +7,9 @@ export default function Home() {
   const [valorDespesa, setValorDespesa] = useState('');
   const [notificacao, setNotificacao] = useState(null); 
 
+  /**
+   * @handleSubmit Função para enviar os dados da despesa para o backend
+   * */ 
   async function handleSubmit(e) {
     e.preventDefault();
     const resposta = await fetch('http://localhost:3051/gastos', {
@@ -21,23 +24,35 @@ export default function Home() {
     });
     
     if (resposta.ok) {
-      setNotificacao({ mensagem: 'Cadastrado com sucesso!' });
-
-      setTimeout(() => {
-      setNotificacao(null);
-      }, 3000);
+      setNotificacao({ tipo: 'success', mensagem: 'Cadastrado com sucesso!' });
+      setTimeout(() => setNotificacao(null), 3000);
     } else {
-      setNotificacao({ mensagem: 'Erro ao cadastrar!' });
-      setTimeout(() => {
-      setNotificacao(null);
-      }, 3000);
+      setNotificacao({ tipo: 'error', mensagem: 'Erro ao cadastrar!' });
+      setTimeout(() => setNotificacao(null), 3000);
+    }
+  }
+
+  /**
+   * @handleExluir Irá excluir os dados
+   */
+  async function handleExcluir() {
+    const resposta = await fetch('http://localhost:5001/gastos', {
+      method: 'DELETE',
+    });
+
+    if (resposta.ok) {
+      setNotificacao({ tipo: 'success', mensagem: 'O último gasto foi excluído!' });
+      setTimeout(() => setNotificacao(null), 3000);
+    } else {
+      setNotificacao({ tipo: 'error', mensagem: 'Erro ao excluir os gastos!' });
+      setTimeout(() => setNotificacao(null), 3000);
     }
   }
 
   return (
     <div className="flex items-center min-h-screen flex-col-reverse relative">
       {notificacao && (
-        <div className="absolute top-20  p-4 rounded-lg text-white bg-blue-500">
+        <div className={`absolute top-20 left-1/2 transform -translate-x-1/2 p-4 rounded-lg text-white ${notificacao.tipo === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
           {notificacao.mensagem}
         </div>
       )}
@@ -68,13 +83,24 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="text-center mt-4">
+          <div className="flex items-center justify-center ">
+          <div className="text-center mt-4 mr-10">
             <input
               type="submit"
               value="Inserir"
               className="bg-blue-700 text-white p-2 rounded cursor-pointer hover:bg-blue-500 active:bg-violet-700"
             />
           </div>
+        <div className="text-center mt-4">
+          <button
+            type="button"
+            onClick={handleExcluir}
+            className="bg-red-700 text-white p-2 rounded cursor-pointer hover:bg-red-500 active:bg-red-800"
+          >
+            Excluir 
+          </button>
+        </div>
+        </div>
         </form>
       </div>
     </div>
