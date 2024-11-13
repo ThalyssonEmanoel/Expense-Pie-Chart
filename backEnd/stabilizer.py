@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 CORS(app) 
 
-banco = r"..\banco\db.json"
+banco = r"\banco\db.json"
 
 def carregar_dados():
     with open(banco, 'r') as arquivo:

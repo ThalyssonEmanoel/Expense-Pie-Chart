@@ -1,3 +1,24 @@
 {
-    "gastos": []
+  "gastos": [
+    {
+      "id": "8a4c",
+      "titulo": "Comida",
+      "valorDespesa": "150"
+    },
+    {
+      "id": "46a6",
+      "titulo": "Academia",
+      "valorDespesa": "150"
+    },
+    {
+      "id": "9c68",
+      "titulo": "Estudos",
+      "valorDespesa": "100"
+    },
+    {
+      "id": "6a4a",
+      "titulo": "Estudos",
+      "valorDespesa": "100"
+    }
+  ]
 }
