@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "api":"json-server --watch banco/db.json --port 3051"
+    "api":"json-server --watch banco/db.json --port 3051 "
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
