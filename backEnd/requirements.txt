@@ -1,2 +1,1 @@
-pip install dashboard?
-Flask==3.0.3
+Flask==3.0.0
