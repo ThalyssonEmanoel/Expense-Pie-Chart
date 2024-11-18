@@ -1,11 +1,13 @@
 from models.banco import carregar_dados, salvar_dados
 
+"""
+Exclui o último item da lista de 'gastos'.
+"""
 def excluir_ultimo_gasto():
-    """Exclui o último item da lista de 'gastos'."""
     dados = carregar_dados()
 
     if dados.get('gastos') and len(dados['gastos']) > 0:
-        dados['gastos'].pop()  # Remove o último item da lista
+        dados['gastos'].pop()  
         salvar_dados(dados)
         return {"message": "Último item de 'gastos' foi excluído!"}, 200
     else:

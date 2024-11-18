@@ -1,7 +1,6 @@
 import json
-import os
 
-banco = os.path.join(os.path.dirname(__file__), '..', '..', 'banco', 'db.json')
+banco = r"banco\db.json"
 
 def carregar_dados():
     """Carrega os dados do banco (db.json)."""

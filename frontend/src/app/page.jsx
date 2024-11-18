@@ -26,6 +26,9 @@ export default function Home() {
     if (resposta.ok) {
       setNotificacao({ tipo: 'success', mensagem: 'Cadastrado com sucesso!' });
       setTimeout(() => setNotificacao(null), 3000);
+      
+      setNomeDespesa('');
+      setValorDespesa('');
     } else {
       setNotificacao({ tipo: 'error', mensagem: 'Erro ao cadastrar!' });
       setTimeout(() => setNotificacao(null), 3000);
@@ -33,7 +36,7 @@ export default function Home() {
   }
 
   /**
-   * @handleExluir Irá excluir os dados
+   * @handleExcluir Irá excluir os dados
    */
   async function handleExcluir() {
     const resposta = await fetch('http://localhost:5001/gastos', {
@@ -52,12 +55,12 @@ export default function Home() {
   return (
     <div className="flex items-center min-h-screen flex-col-reverse relative">
       {notificacao && (
-        <div className={`absolute top-20 left-1/2 transform -translate-x-1/2 p-4 rounded-lg text-white ${notificacao.tipo === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+        <div className={`absolute top-20 left-1/2 transform -translate-x-1/2 p-4 rounded-lg text-white ${notificacao.tipo === 'success' ? 'bg-black' : 'bg-red-500'}`}>
           {notificacao.mensagem}
         </div>
       )}
 
-      <div className="bg-gray-800 p-6 rounded-3xl w-full max-w-md fixed top-96">
+      <div className="bg-black p-6 rounded-3xl w-full max-w-md fixed top-96">
         <h1 className="text-2xl text-center text-white mb-6">Cadastro de despesas</h1>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col my-2">
@@ -84,23 +87,23 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center justify-center ">
-          <div className="text-center mt-4 mr-10">
-            <input
-              type="submit"
-              value="Inserir"
-              className="bg-blue-700 text-white p-2 rounded cursor-pointer hover:bg-blue-500 active:bg-violet-700"
-            />
+            <div className="text-center mt-4 mr-10">
+              <input
+                type="submit"
+                value="Inserir"
+                className="bg-blue-700 text-white p-2 rounded cursor-pointer hover:bg-blue-500 "
+              />
+            </div>
+            <div className="text-center mt-4">
+              <button
+                type="button"
+                onClick={handleExcluir}
+                className="bg-red-700 text-white p-2 rounded cursor-pointer hover:bg-red-500 active:bg-red-800"
+              >
+                Excluir 
+              </button>
+            </div>
           </div>
-        <div className="text-center mt-4">
-          <button
-            type="button"
-            onClick={handleExcluir}
-            className="bg-red-700 text-white p-2 rounded cursor-pointer hover:bg-red-500 active:bg-red-800"
-          >
-            Excluir 
-          </button>
-        </div>
-        </div>
         </form>
       </div>
     </div>

@@ -4,11 +4,10 @@ from config.config import DevelopmentConfig
 from routes.gastos_router import gastos_bp
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig)  # Carrega a configuração
+app.config.from_object(DevelopmentConfig)  
 
-CORS(app)  # Ativa CORS globalmente
+CORS(app)  
 
-# Registra o Blueprint
 app.register_blueprint(gastos_bp)
 
 if __name__ == '__main__':
