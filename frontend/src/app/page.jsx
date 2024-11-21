@@ -39,7 +39,7 @@ export default function Home() {
    * @handleExcluir Irá excluir os dados
    */
   async function handleExcluir() {
-    const resposta = await fetch('http://localhost:5001/gastos', {
+    const resposta = await fetch('http://localhost:3051/gastos', {
       method: 'DELETE',
     });
 

@@ -22,20 +22,21 @@ export default function Historico() {
 
   console.log("2-",gastos);
   return (
-    <div className=" p-6">
+    <div className="flex flex-col items-center min-h-screen  p-6">
       <h1 className="text-2xl text-black mb-6">Histórico de Despesas</h1>
-      <table>
+    
+      <table className="table-auto border-collapse w-full max-w-4xl text-black">
         <thead>
           <tr>
-            <th>Despesa</th>
-            <th>Valor</th>
+            <th className="px-4 py-2 border border-black text-left">Despesa</th>
+            <th className="px-4 py-2 border border-black text-left">Valor</th>
           </tr>
         </thead>
         <tbody>
           {gastos.map(e => (
             <tr key={e.id}>
-              <td >{e.titulo}</td>
-              <td>R$ {e.valorDespesa}</td>
+              <td className="px-4 py-2 border border-black">{e.titulo}</td>
+              <td className="px-4 py-2 border border-black">R$ {e.valorDespesa}</td>
             </tr>
           ))}
         </tbody>
