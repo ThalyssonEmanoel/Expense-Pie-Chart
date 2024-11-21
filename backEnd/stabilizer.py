@@ -24,20 +24,20 @@ def gastos():
             dados['gastos'] = []
         dados['gastos'].append(novo_gasto)
         salvar_dados(dados)
-        return jsonify({"message": "Despesa cadastrada com sucesso!"}), 201
+        return jsonify({"message": "Cadastrado!"}), 201
+    
     elif request.method == 'DELETE':
         dados = carregar_dados()
-        
         if dados.get('gastos') and len(dados['gastos']) > 0:
             dados['gastos'].pop()  
             salvar_dados(dados)
-            return jsonify({"message": "Último item de 'gastos' foi excluído!"}), 200
+            return jsonify({"message": "Excluído!"}), 200
         else:
-            return jsonify({"message": "Não há itens para excluir em 'gastos'!"}), 400
+            return jsonify({"message": "Erro!"}), 400
 
     elif request.method == 'GET':
         dados = carregar_dados()
         return jsonify(dados.get('gastos', []))
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=3001)
+    app.run(debug=True, host='0.0.0.0', port=3002)
