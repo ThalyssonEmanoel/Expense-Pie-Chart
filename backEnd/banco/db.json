@@ -1,29 +1,14 @@
 {
-  "gastos": [
-    {
-      "id": "d15a",
-      "titulo": "Exemplo",
-      "valorDespesa": "123123"
-    },
-    {
-      "id": "6400",
-      "titulo": "Exemplo2",
-      "valorDespesa": "123321"
-    },
-    {
-      "id": "047c",
-      "titulo": "a",
-      "valorDespesa": "987"
-    },
-    {
-      "id": "a247",
-      "titulo": "teste1",
-      "valorDespesa": "1"
-    },
-    {
-      "id": "6bb3",
-      "titulo": "Comida",
-      "valorDespesa": "125"
-    }
-  ]
+    "gastos": [
+        {
+            "id": "d15a",
+            "titulo": "Exemplo",
+            "valorDespesa": "123123"
+        },
+        {
+            "id": "6400",
+            "titulo": "Exemplo2",
+            "valorDespesa": "123321"
+        }
+    ]
 }

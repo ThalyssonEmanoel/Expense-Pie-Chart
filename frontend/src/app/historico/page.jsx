@@ -6,7 +6,7 @@ export default function Historico() {
   const [gastos, setGastos] = useState([]);
 
   async function fetchGastos() {
-    const resposta = await fetch('http://localhost:3051/gastos');
+    const resposta = await fetch('http://localhost:3002/gastos');
     if (resposta.ok) {
       const dados = await resposta.json();
       setGastos(dados);

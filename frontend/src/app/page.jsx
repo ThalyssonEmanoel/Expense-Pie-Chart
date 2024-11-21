@@ -12,7 +12,7 @@ export default function Home() {
    * */ 
   async function handleSubmit(e) {
     e.preventDefault();
-    const resposta = await fetch('http://localhost:3051/gastos', {
+    const resposta = await fetch('http://localhost:3002/gastos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export default function Home() {
    * @handleExcluir Irá excluir os dados
    */
   async function handleExcluir() {
-    const resposta = await fetch('http://localhost:3051/gastos', {
+    const resposta = await fetch('http://localhost:3002/gastos', {
       method: 'DELETE',
     });
 
