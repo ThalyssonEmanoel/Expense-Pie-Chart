@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/backEnd",
+      "src": "https://gastos-despesas.vercel.app/gastos",
       "dest": "stabilizer.py"
     }
   ]
