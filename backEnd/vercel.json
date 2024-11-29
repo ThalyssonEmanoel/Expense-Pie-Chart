@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "stabilizer.py",
-      "use": "@vercel/python"
+      "src": "./index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "https://gastos-despesas.vercel.app/gastos",
-      "dest": "stabilizer.py"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
