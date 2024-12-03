@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "backEnd/stabilizer.py",
-      "use": "@vercel/python"
+      "src": "backEnd/index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/gastos",
-      "dest": "stabilizer.py"
+      "src": "/backEnd/(.*)",
+      "dest": "backEnd/index.js"
     }
   ]
 }
