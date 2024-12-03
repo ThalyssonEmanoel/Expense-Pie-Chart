@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import connectDB from './connect-mongodb-api.js';
 import Despesa from './models/gastos.model.js';
 
@@ -7,6 +8,7 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors()); 
 app.use(express.json());
 
 connectDB();
@@ -31,18 +33,18 @@ app.post("/api/gastos", async (req, res) => {
   }
 });
 
-app.delete("/api/gastos/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const despesaDeletada = await Despesa.findByIdAndDelete(id);
-    if (!despesaDeletada) {
-      return res.status(404).json({ msg: "Despesa não encontrada" });
-    }
-    res.status(200).json({ msg: "Despesa deletada com sucesso" });
-  } catch (error) {
-    res.status(500).json({ msg: error.message });
-  }
-});
+// app.delete("/api/gastos/:id", async (req, res) => {
+//   try {
+//     const { id } = req.body;
+//     const despesaDeletada = await Despesa.findByIdAndDelete(id);
+//     if (!despesaDeletada) {
+//       return res.status(404).json({ msg: "Despesa não encontrada" });
+//     }
+//     res.status(200).json({ msg: "Despesa deletada com sucesso" });
+//   } catch (error) {
+//     res.status(500).json({ msg: error.message });
+//   }
+// });
 
 const PORT = process.env.PORT || 8080;
 

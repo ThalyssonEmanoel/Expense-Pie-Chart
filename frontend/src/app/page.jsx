@@ -10,18 +10,20 @@ export default function Home() {
   /**
    * @handleSubmit Função para enviar os dados da despesa para o backend
    * */ 
+  
   async function handleSubmit(e) {
     e.preventDefault();
-    const resposta = await fetch('https://gastos-despesas.vercel.app/gastos', {
+    const resposta = await fetch('http://localhost:8080/api/gastos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "titulo": nomeDespesa,
+        "nome": nomeDespesa,
         "valorDespesa": valorDespesa
       })
     });
+    console.log('nomeDespesa', resposta);
     
     if (resposta.ok) {
       setNotificacao({ tipo: 'success', mensagem: 'Cadastrado com sucesso!' });
@@ -38,19 +40,6 @@ export default function Home() {
   /**
    * @handleExcluir Irá excluir os dados
    */
-  async function handleExcluir() {
-    const resposta = await fetch('https://gastos-despesas.vercel.app/gastos', {
-      method: 'DELETE',
-    });
-
-    if (resposta.ok) {
-      setNotificacao({ tipo: 'success', mensagem: 'O último gasto foi excluído!' });
-      setTimeout(() => setNotificacao(null), 3000);
-    } else {
-      setNotificacao({ tipo: 'error', mensagem: 'Erro ao excluir os gastos!' });
-      setTimeout(() => setNotificacao(null), 3000);
-    }
-  }
 
   return (
     <div className="flex items-center min-h-screen flex-col-reverse relative">
@@ -87,21 +76,12 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center justify-center ">
-            <div className="text-center mt-4 mr-10">
+            <div className="text-center mt-4 ">
               <input
                 type="submit"
                 value="Inserir"
                 className="bg-blue-700 text-white p-2 rounded cursor-pointer hover:bg-blue-500 "
               />
-            </div>
-            <div className="text-center mt-4">
-              <button
-                type="button"
-                onClick={handleExcluir}
-                className="bg-red-700 text-white p-2 rounded cursor-pointer hover:bg-red-500 active:bg-red-800"
-              >
-                Excluir 
-              </button>
             </div>
           </div>
         </form>

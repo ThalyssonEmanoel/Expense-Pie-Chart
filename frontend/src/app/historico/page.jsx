@@ -4,25 +4,30 @@ import { useState, useEffect } from "react";
 
 export default function Historico() {
   const [gastos, setGastos] = useState([]);
-
+  
   async function fetchGastos() {
-    const resposta = await fetch('https://gastos-despesas.vercel.app/gastos');
-    if (resposta.ok) {
-      const dados = await resposta.json();
-      setGastos(dados);
-    } else {
-      console.error("Erro ao buscar dados");
+    try {
+      const resposta = await fetch('http://localhost:8080/api/gastos', {
+        method: 'GET'
+      });
+      
+      if (resposta.ok) {
+        const dados = await resposta.json();
+        setGastos(dados);
+      } else {
+        console.error("Erro ao buscar dados:", resposta.statusText);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
     }
   }
-  console.log("1-",gastos);
   
   useEffect(() => {
     fetchGastos();
   }, []);
 
-  console.log("2-",gastos);
   return (
-    <div className="flex flex-col items-center min-h-screen  p-6">
+    <div className="flex flex-col items-center min-h-screen p-6">
       <h1 className="text-2xl text-black mb-6">Histórico de Despesas</h1>
     
       <table className="table-auto border-collapse w-full max-w-4xl text-black">
@@ -34,8 +39,8 @@ export default function Historico() {
         </thead>
         <tbody>
           {gastos.map(e => (
-            <tr key={e.id}>
-              <td className="px-4 py-2 border border-black">{e.titulo}</td>
+            <tr key={e._id}>
+              <td className="px-4 py-2 border border-black">{e.nome}</td>
               <td className="px-4 py-2 border border-black">R$ {e.valorDespesa}</td>
             </tr>
           ))}

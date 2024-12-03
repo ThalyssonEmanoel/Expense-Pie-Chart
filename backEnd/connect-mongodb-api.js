@@ -1,3 +1,4 @@
+//Colocar dentro da pasta utils..
 import mongoose from 'mongoose';
 
 const connectDB = async () => {
