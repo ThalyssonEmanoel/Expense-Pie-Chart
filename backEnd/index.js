@@ -13,7 +13,7 @@ app.use(express.json());
 
 connectDB();
 
-app.get("/api/gastos", async (req, res) => {
+app.get("/gastos", async (req, res) => {
   try {
     const despesas = await Despesa.find({}, '_id nome valorDespesa');
     res.status(200).json(despesas);
@@ -22,7 +22,7 @@ app.get("/api/gastos", async (req, res) => {
   }
 });
 
-app.post("/api/gastos", async (req, res) => {
+app.post("/gastos", async (req, res) => {
   try {
     const { nome, valorDespesa } = req.body;
     const novaDespesa = new Despesa({ nome, valorDespesa });
