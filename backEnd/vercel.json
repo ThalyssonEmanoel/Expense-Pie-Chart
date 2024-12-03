@@ -13,7 +13,7 @@
     }
   ],
   "functions": {
-    "backEnd/index.js": {
+    "index.js": {
       "maxDuration": 30
     }
   }
