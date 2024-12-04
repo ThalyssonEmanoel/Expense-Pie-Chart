@@ -7,7 +7,8 @@ export default function Historico() {
   
   async function fetchGastos() {
     try {
-      const resposta = await fetch(`${process.env.NEXT_MY_API}/gastos` || 'https://expense-pie-chart.vercel.app/gastos', {
+      //Tentar usar `${process.env.NEXT_MY_API}/gastos`
+      const resposta = await fetch( 'https://expense-pie-chart.vercel.app/gastos', {
         method: 'GET'
       });
       
