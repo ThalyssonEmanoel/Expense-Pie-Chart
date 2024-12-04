@@ -7,7 +7,7 @@ export default function Historico() {
   
   async function fetchGastos() {
     try {
-      const resposta = await fetch('http://localhost:8080/api/gastos', {
+      const resposta = await fetch(process.env.NEXT_MY_API || 'http://localhost:8080/gastos', {
         method: 'GET'
       });
       
