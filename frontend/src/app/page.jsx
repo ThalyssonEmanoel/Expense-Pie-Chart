@@ -13,7 +13,7 @@ export default function Home() {
   
   async function handleSubmit(e) {
     e.preventDefault();
-    const resposta = await fetch('http://localhost:8080/api/gastos', {
+    const resposta = await fetch(process.env.NEXT_MY_API || 'http://localhost:8080/gastos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
