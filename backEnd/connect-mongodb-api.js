@@ -6,7 +6,7 @@ const connectDB = async () => {
         await mongoose.connect(process.env.MONGODB_URL_EXPENSIVE);
         console.log("Conexão com o banco feita com sucesso");
     } catch (error) {
-        console.log("Conexão com o banco falhou " + error.message);
+        console.log("Conexão com o banco falhou. " + error.message);
     }
 };
 
