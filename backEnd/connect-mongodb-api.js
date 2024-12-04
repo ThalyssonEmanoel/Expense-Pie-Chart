@@ -4,9 +4,9 @@ import mongoose from 'mongoose';
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URL_EXPENSIVE);
-        console.log("Connect to MongoDB successfully");
+        console.log("Conexão com o banco feita com sucesso");
     } catch (error) {
-        console.log("Connect failed " + error.message);
+        console.log("Conexão com o banco falhou " + error.message);
     }
 };
 
