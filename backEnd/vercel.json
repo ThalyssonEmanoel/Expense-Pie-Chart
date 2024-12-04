@@ -10,6 +10,10 @@
     {
       "src": "/(.*)",
       "dest": "index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "connect-mongodb-api.js"
     }
   ]
 }
