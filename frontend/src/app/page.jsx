@@ -13,7 +13,7 @@ export default function Home() {
   
   async function handleSubmit(e) {
     e.preventDefault();
-    const resposta = await fetch(process.env.NEXT_MY_API || 'http://localhost:8080/gastos', {
+    const resposta = await fetch(`${process.env.NEXT_MY_API}/gastos` || 'https://expense-pie-chart.vercel.app/gastos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
