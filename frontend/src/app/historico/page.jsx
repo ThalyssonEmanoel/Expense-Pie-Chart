@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import { FaTrash } from "react-icons/fa";  
 
 export default function Historico() {
   const [gastos, setGastos] = useState([]);
@@ -22,7 +23,23 @@ export default function Historico() {
       console.error("Erro ao buscar dados:", error);
     }
   }
-  
+
+  const deleteGasto = async (id) => {
+    try {
+      const resposta = await fetch(`https://expense-pie-chart.vercel.app/api/gastos/${id}`, {
+        method: 'DELETE',
+      });
+      
+      if (resposta.ok) {
+        setGastos(gastos.filter(gasto => gasto._id !== id));
+      } else {
+        console.error("Erro ao deletar gasto:", resposta.statusText);
+      }
+    } catch (error) {
+      console.error("Erro ao deletar gasto:", error);
+    }
+  };
+
   useEffect(() => {
     fetchGastos();
   }, []);
@@ -36,6 +53,7 @@ export default function Historico() {
           <tr>
             <th className="px-4 py-2 border border-black text-left">Despesa</th>
             <th className="px-4 py-2 border border-black text-left">Valor</th>
+            <th className="px-4 py-2 border border-black text-left">EXCLUIR</th> 
           </tr>
         </thead>
         <tbody>
@@ -43,6 +61,13 @@ export default function Historico() {
             <tr key={e._id}>
               <td className="px-4 py-2 border border-black">{e.nome}</td>
               <td className="px-4 py-2 border border-black">R$ {e.valorDespesa}</td>
+              <td className="px-4 py-2 border border-black">
+                <button 
+                  onClick={() => deleteGasto(e._id)} 
+                  className="text-red-500 hover:text-red-700">
+                  <FaTrash />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
