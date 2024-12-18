@@ -48,12 +48,12 @@ export default function Historico() {
     <div className="flex flex-col items-center min-h-screen p-6">
       <h1 className="text-2xl text-black mb-6">Histórico de Despesas</h1>
     
-      <table className="table-auto border-collapse w-full max-w-4xl text-black">
+      <table className="table-auto border-collapse  max-w-4xl text-black">
         <thead>
           <tr>
             <th className="px-4 py-2 border border-black text-left">Despesa</th>
             <th className="px-4 py-2 border border-black text-left">Valor</th>
-            <th className="px-4 py-2 border border-black text-left">EXCLUIR</th> 
+            <th className="px-4 py-2 border border-black text-left">Excluir</th> 
           </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@ export default function Historico() {
             <tr key={e._id}>
               <td className="px-4 py-2 border border-black">{e.nome}</td>
               <td className="px-4 py-2 border border-black">R$ {e.valorDespesa}</td>
-              <td className="px-4 py-2 border border-black">
+              <td className="px-10 py-2 border border-black">
                 <button 
                   onClick={() => deleteGasto(e._id)} 
                   className="text-red-500 hover:text-red-700">
