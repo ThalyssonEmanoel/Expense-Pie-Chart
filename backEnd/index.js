@@ -33,18 +33,18 @@ app.post("/gastos", async (req, res) => {
   }
 });
 
-// app.delete("/api/gastos/:id", async (req, res) => {
-//   try {
-//     const { id } = req.body;
-//     const despesaDeletada = await Despesa.findByIdAndDelete(id);
-//     if (!despesaDeletada) {
-//       return res.status(404).json({ msg: "Despesa não encontrada" });
-//     }
-//     res.status(200).json({ msg: "Despesa deletada com sucesso" });
-//   } catch (error) {
-//     res.status(500).json({ msg: error.message });
-//   }
-// });
+app.delete("/api/gastos/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const despesaDeletada = await Despesa.findByIdAndDelete(id);
+    if (!despesaDeletada) {
+      return res.status(404).json({ msg: "Despesa não encontrada" });
+    }
+    res.status(200).json({ msg: "Despesa deletada com sucesso" });
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+});
 
 const PORT = process.env.PORT || 8080;
 
