@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import connectDB from './connect-mongodb-api.js';
+import connectDB from './config/connect-mongodb-api.js';
 import Despesa from './models/gastos.model.js';
 
 dotenv.config();
@@ -11,7 +11,7 @@ const app = express();
 app.use(cors()); 
 app.use(express.json());
 
-connectDB();
+connectDB.conectar();
 
 app.get("/gastos", async (req, res) => {
   try {
@@ -49,7 +49,7 @@ app.delete("/api/gastos/:id", async (req, res) => {
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
-  console.log(`FUNCIONOU, ESTÁ RODANDO NA PORTA: localhost:${PORT}`);
+  console.log(`FUNCIONOU, ESTÁ RODANDO NA PORTA: http://localhost:${PORT}/gastos`);
 });
 
 export default app;
