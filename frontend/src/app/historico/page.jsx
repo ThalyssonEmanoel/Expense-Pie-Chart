@@ -15,7 +15,16 @@ export default function Historico() {
       
       if (resposta.ok) {
         const dados = await resposta.json();
-        setGastos(dados);
+        console.log(dados);
+        
+        // Extract only the necessary properties from the docs array
+        const extractedGastos = dados.docs.map(gasto => ({
+          nome: gasto.nome,
+          valorDespesa: gasto.valorDespesa,
+          _id: gasto._id
+        }));
+        
+        setGastos(extractedGastos);
       } else {
         console.error("Erro ao buscar dados:", resposta.statusText);
       }

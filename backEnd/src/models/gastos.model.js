@@ -1,19 +1,28 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
 mongoose.set('strictQuery', false); 
 
-const { Schema } = mongoose;
+class Gastos {
+  constructor() {
 
-const despesaSchema = new Schema({
-  nome: {
-    type: String,
-    required: true
+const despesaSchema = new mongoose.Schema({
+  nome: 
+  {
+    type: String, required: true
   },
-  valorDespesa: {
-    type: Number,
-    required: true
+  valorDespesa: 
+  {
+    type: Number, required: true
   }
-});
+  }, 
+  {
+  versionKey: false // Exclude the __v field
+  }
+); 
 
-const despesa = mongoose.model('despesas', despesaSchema);
+despesaSchema.plugin(mongoosePaginate);
 
-export default despesa;
+  this.model = mongoose.model('despesas', despesaSchema);
+  }
+}
+export default new Gastos().model;
