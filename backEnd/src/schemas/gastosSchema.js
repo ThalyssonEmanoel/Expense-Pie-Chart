@@ -3,8 +3,8 @@
 import { z } from 'zod';
 
 const GastoSchema = z.object({
-  nome: z.string().optional(),
-  valorDespesa: z.string().optional(),
+  nome: z.string().min(3).max(45),
+  valorDespesa: z.number()
 });
 
 const GastoSchemaUpdate = GastoSchema.partial();

@@ -9,7 +9,7 @@ export default function Historico() {
   async function fetchGastos() {
     try {
       //Tentar usar `${process.env.NEXT_MY_API}/gastos`
-      const resposta = await fetch( 'https://expense-pie-chart.vercel.app/gastos', {
+      const resposta = await fetch( 'http://localhost:8080/gastos', {
         method: 'GET'
       });
       
@@ -17,7 +17,6 @@ export default function Historico() {
         const dados = await resposta.json();
         console.log(dados);
         
-        // Extract only the necessary properties from the docs array
         const extractedGastos = dados.docs.map(gasto => ({
           nome: gasto.nome,
           valorDespesa: gasto.valorDespesa,
@@ -35,7 +34,7 @@ export default function Historico() {
 
   const deleteGasto = async (id) => {
     try {
-      const resposta = await fetch(`https://expense-pie-chart.vercel.app/api/gastos/${id}`, {
+      const resposta = await fetch(`http://localhost:8080/api/gastos/${id}`, {
         method: 'DELETE',
       });
       
