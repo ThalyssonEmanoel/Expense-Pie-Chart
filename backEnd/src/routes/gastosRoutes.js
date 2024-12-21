@@ -7,7 +7,7 @@ const gastosController = new GastosController();
 
 router
   .get("/gastos", gastosController.listar.bind(gastosController))
-  // .post("/gastos", gastosController.criar)
-  // .delete("/api/gastos/:id", gastosController.deletar)
+  .post("/gastos", gastosController.criar.bind(gastosController))
+  .delete("/api/gastos/:id", gastosController.deletar.bind(gastosController));
 
 export default router;
