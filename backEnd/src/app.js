@@ -5,11 +5,11 @@ import cors from "cors";
 import compression from "compression";
 import DbConect from './config/connect-mongodb-api.js';
 
+await DbConect.conectar();
+
 const app = express();
 app.use(cors()); 
 app.use(express.json());
-
-DbConect.conectar();
 
 // app.use(helmet());
 
