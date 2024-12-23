@@ -5,8 +5,8 @@ import express from "express";
 // import swaggerUI from "swagger-ui-express";
 // import getSwaggerOptions from "../docs/config/head.js";
 // import logRoutes from "../middlewares/LogRoutesMiddleware.js";
-
 import gastos from './gastosRoutes.js';
+import usuario from './usuarioRoute.js';
 
 import dotenv from "dotenv";
 
@@ -15,6 +15,7 @@ dotenv.config();
 const routes = (app) => {
     app.use(express.json(),
       gastos,
+      usuario
     );
 
     app.use((req, res) => {
