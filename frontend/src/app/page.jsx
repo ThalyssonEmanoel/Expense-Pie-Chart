@@ -14,7 +14,7 @@ export default function Home() {
   async function handleSubmit(e) {
     e.preventDefault();
     //Tentar usar `${process.env.NEXT_MY_API}/gastos`
-    const resposta = await fetch('http://localhost:8080/gastos', {
+    const resposta = await fetch('https://expense-pie-chart.vercel.app/gastos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
